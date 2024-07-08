@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #060505;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .login-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            width: 300px;
+        }
+        
+        .login-form h2 {
+            margin-top: 0;
+        }
+        
+        .login-form input[type="text"], .login-form input[type="password"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        .login-form input[type="text"]:focus, .login-form input[type="password"]:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .login-btn:hover {
+            background-color: #3e8e41;
+        }
+        
+        .forgot-pwd, .signup {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        
+        .forgot-pwd:hover, .signup:hover {
+            color: #3e8e41;
+        }
+        
+        /* Animations */
+        
+        .login-form {
+            animation: fadeIn 1s;
+        }
+        
+        .login-form input[type="text"], .login-form input[type="password"] {
+            animation: slideIn 1s;
+        }
+        
+        .login-btn {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive Design */
+        
+        @media (max-width: 400px) {
+            .container {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="c:\Users\anoop\OneDrive\Pictures\Screenshots\Screenshot 2024-07-08 100257.png" alt="image_description" class="image">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button class="login-btn">Login</button>
+                <p>Forgot password? <a href="#" class="forgot-pwd">Click here</a></p>
+                <p>Don't have an account? <a href="#" class="signup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

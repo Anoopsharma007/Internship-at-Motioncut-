@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Interface</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7a7b83;
+        }
+
+        /* Search container styles */
+        .search-container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fbf1f1;
+            border: 1px solid #0c0c0c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container input[type="Anything You Want To see"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #f3d7d7;
+        }
+        .search-container button[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #bff6c1;
+            color: #b7b4d7;
+            border: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-container button[type="button"]:hover {
+            background-color: #3e8e41;
+        }
+        .search-results {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="search" id="search-input" placeholder="Search...">
+        <button id="search-btn">Search</button>
+        <div class="search-results"></div>
+    </div>
+
+    <!-- Background animation -->
+    <div class="bg-animation">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+
+    <script>
+        // Get the search input and button elements
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const searchResults = document.querySelector('.search-results');
+
+        // Add event listener to the search button
+        searchBtn.addEventListener('click', search);
+
+        // Function to handle the search
+        function search() {
+            const searchTerm = searchInput.value.trim();
+
+            // Check if the search term is not empty
+            if (searchTerm !== '') {
+                // Clear the search results
+                searchResults.innerHTML = '';
+
+                // Create a list item for each search result
+                for (let i = 0; i < 5; i++) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Search result ${i + 1} for "${searchTerm}"`;
+                    searchResults.appendChild(listItem);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
