@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slide">
+        <img src="c:\Users\anoop\Downloads\wp2417842-porsche-918-spyder-wallpapers.jpg" alt="Slide 1">
+    </div>
+    <div class="slide">
+        <img src="c:\Users\anoop\Downloads\wp6284350-porsche-918-spyder-desktop-wallpapers.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <img src="c:\Users\anoop\Downloads\wp6284698-porsche-918-spyder-desktop-wallpapers.jpg" alt="Slide 3">
+    </div>
+
+    <!-- Navigation controls -->
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }    
+        slides[slideIndex - 1].style.display = "block";  
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    function nextSlide() {
+        if (slideIndex < slides.length) {
+            slideIndex++;
+        } else {
+            slideIndex = 1;
+        }
+        showSlides();
+    }
+
+    function prevSlide() {
+        if (slideIndex > 1) {
+            slideIndex--;
+        } else {
+            slideIndex = slides.length;
+        }
+        showSlides();
+    }
+
+    showSlides(); // Initial call to start automatic sliding
+</script>
+
+</body>
+</html>
